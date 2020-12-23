@@ -58,9 +58,53 @@ const tableItems = productTableData => {
 };
 // TASK 2
 
-for (var i = 1; i <= 20; i++) {
-  if (i % 15 == 0) console.log("FizzBuzz");
-  else if (i % 3 == 0) console.log("Fizz");
-  else if (i % 5 == 0) console.log("Buzz");
-  else console.log(i);
-}
+// for (var i = 1; i <= 20; i++) {
+//   if (i % 15 == 0) console.log("FizzBuzz");
+//   else if (i % 3 == 0) console.log("Fizz");
+//   else if (i % 5 == 0) console.log("Buzz");
+//   else console.log(i);
+// }
+
+// TASK 3
+
+// cylinder
+const cyclinderRadius = document.querySelector(".cyclinder__radius");
+const cyclinderHeight = document.querySelector(".cyclinder__height");
+const cyclinderBtn = document.querySelector(".cyclinder__btn");
+const cyclinderResult = document.querySelector(".cyclinder__result");
+
+cyclinderBtn.addEventListener("click", () => {
+  const radius = cyclinderRadius.value;
+  const height = cyclinderHeight.value;
+  const result = Math.PI * radius * radius * height;
+  cyclinderResult.innerHTML = `Volume = ${result.toFixed(2)}`;
+});
+// cuboid
+const cuboidWidth = document.querySelector(".cuboid__width");
+const cuboidLength = document.querySelector(".cuboid__length");
+const cuboidHeight = document.querySelector(".cuboid__height");
+const cuboidBtn = document.querySelector(".cuboid__btn");
+const cuboidResult = document.querySelector(".cuboid__result");
+
+cuboidBtn.addEventListener("click", () => {
+  const width = cuboidWidth.value;
+  const length = cuboidLength.value;
+  const height = cuboidHeight.value;
+
+  const result = width * length * height;
+  cuboidResult.innerHTML = `Volume = ${result}`;
+});
+
+// pyramid
+const pyramidArea = document.querySelector(".pyramid__area");
+const pyramidHeight = document.querySelector(".pyramid__height");
+const pyramidBtn = document.querySelector(".pyramid__btn");
+const pyramidResult = document.querySelector(".pyramid__result");
+
+pyramidBtn.addEventListener("click", () => {
+  const a = pyramidArea.value;
+  const h = pyramidHeight.value;
+
+  const result = (1 / 3) * a * a * h;
+  pyramidResult.innerHTML = `Volume = ${Math.round(result)}`;
+});
