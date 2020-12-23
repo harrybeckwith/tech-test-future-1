@@ -7,9 +7,11 @@ body {
 
 .table {
   width: 1000px;
+
   &__headers {
     display: flex;
   }
+
   &__item {
     background: #efefef;
     padding: 5px;
@@ -20,7 +22,6 @@ body {
   }
 
   &__body {
-    display: flex;
     display: flex;
     flex-wrap: wrap;
   }
