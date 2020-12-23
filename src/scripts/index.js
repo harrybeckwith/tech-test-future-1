@@ -5,7 +5,8 @@ if (process.env.NODE_ENV === "development") {
 }
 
 // TASK 1
-// fetch json file with dino data
+const tableDOM = document.querySelector(".table__body");
+// fetch json
 const getProductData = async () => {
   const url =
     "https://search-api.fie.future.net.uk/widget.php?id=review&model_name=xbox_one_s&area=GB";
@@ -15,7 +16,6 @@ const getProductData = async () => {
     const resultOffers = gatherProduct(result);
     const formattedData = getOfferData(resultOffers);
     const tableItemsHTML = tableItems(formattedData);
-    const tableDOM = document.querySelector(".table__body");
 
     tableItemsHTML.forEach(function(item) {
       tableDOM.insertAdjacentHTML("beforeend", item);
@@ -26,11 +26,11 @@ const getProductData = async () => {
 };
 
 getProductData();
-
+// go to offers in data
 const gatherProduct = data => {
   return data.widget.data.offers;
 };
-
+// create object with needed data for table
 const getOfferData = arr => {
   return arr.map(item => {
     return {
@@ -43,7 +43,7 @@ const getOfferData = arr => {
     };
   });
 };
-
+// create html for talble items with data
 const tableItems = productTableData => {
   return productTableData.map(item => {
     return `
@@ -58,12 +58,24 @@ const tableItems = productTableData => {
 };
 // TASK 2
 
-// for (var i = 1; i <= 20; i++) {
-//   if (i % 15 == 0) console.log("FizzBuzz");
-//   else if (i % 3 == 0) console.log("Fizz");
-//   else if (i % 5 == 0) console.log("Buzz");
-//   else console.log(i);
-// }
+function is_prime(x) {
+  if (x < 2 || (x % 2 == 0 && x !== 2)) return false;
+  if (x > 2) {
+    for (let n = 3; n < x; n += 2) {
+      if (x % n == 0) return false;
+    }
+  }
+  return true;
+}
+
+for (let i = 1; i <= 500; i++) {
+  if (i % 15 == 0) console.log("FizzBuzz");
+  else if (i % 3 == 0) console.log("Fizz");
+  else if (i % 5 == 0) console.log("Buzz");
+  else if (is_prime(i)) {
+    console.log("PRIME");
+  } else console.log(i);
+}
 
 // TASK 3
 
